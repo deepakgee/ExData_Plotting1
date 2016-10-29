@@ -10,7 +10,7 @@ data[,1] <- as.Date(data[,1], "%d/%m/%Y")
 #Filter down to the dataset for the relevant dates only
 filteredData <- subset(data, Date == as.Date("2007-02-01") | Date == as.Date("2007-02-02"))
 #Draw the historgram
+png(filename = "plot1.png", width = 480, height = 480, units = "px")
 hist(as.numeric(as.character(filteredData$Global_active_power)), xlab = "Global Active Power (kilowatts)", main = "Global Active Power", col = "red")
 #Save as .png file
-dev.copy(png, "plot1.png")
 dev.off()

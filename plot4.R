@@ -19,6 +19,7 @@ filteredData$Global_reactive_power <- as.numeric(as.character(filteredData$Globa
 #Create new DateTime column by combining date and time columns oin data frame
 filteredData$DateTime <- as.POSIXct(paste(filteredData$Date, as.character(filteredData$Time)))
 #Setup drawing area in 2 by 2
+png(filename = "plot4.png", width = 480, height = 480, units = "px")
 pardefault <- par(mfcol = c(2,2))
 pardefault
 #Draw first plot - Global Active power
@@ -36,5 +37,4 @@ with(filteredData, plot(DateTime, Voltage, type="l", xlab = "datetime", ylab = "
 #Draw 4th plot
 with(filteredData, plot(DateTime, Global_reactive_power, type="l", xlab = "datetime", ylab = "Global_reactive_power"))
 #Save as .png file
-dev.copy(png, "plot4.png")
 dev.off()

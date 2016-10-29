@@ -14,7 +14,7 @@ filteredData$Global_active_power <- as.numeric(as.character(filteredData$Global_
 #Create new DateTime column by combining date and time columns oin data frame
 filteredData$DateTime <- as.POSIXct(paste(filteredData$Date, as.character(filteredData$Time)))
 #Draw the historgram
+png(filename = "plot2.png", width = 480, height = 480, units = "px")
 with(filteredData, plot(DateTime, Global_active_power, type="l", xlab = "", ylab = "Global Active Power (kilowatts)"))
 #Save as .png file
-dev.copy(png, "plot2.png")
 dev.off()
